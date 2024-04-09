@@ -1,21 +1,19 @@
-import { Component } from "@angular/core";
+import { Component, effect, inject, model } from '@angular/core';
+import { BaseService } from '../utils/base.service';
+import { map } from 'rxjs';
 
 @Component({
-    selector: 'banner',
-    standalone: true,
-    template: `
-        <section>
-            <div class="banner-info">
-
-            </div>
-            @if(expand) {
-                <div class="more-info">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, dolorum ad architecto omnis, inventore cumque ex qui reprehenderit rem eveniet impedit consectetur tempora velit id magni obcaecati reiciendis quod animi!
-                </div>
-            }
-        </section>
-    `
+  selector: 'banner-witget',
+  standalone: true,
+  imports: [],
+  templateUrl: './banner.component.html',
+  styleUrl: './banner.component.scss'
 })
 export class BannerComponent {
-    expand = false;
+
+  expand = model.required();
+
+  constructor() {
+    effect(() => console.log(`Value expand: ${ this.expand() }`));
+  }
 }

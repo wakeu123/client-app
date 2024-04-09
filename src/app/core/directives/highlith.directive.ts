@@ -16,7 +16,7 @@ export class HighlightDirective implements OnInit {
         this.color = this.purple;
     }
 
-    @HostBinding('style.background')
+    @HostBinding('style.backgroundColor')
     color: string = 'transparent';
 
     @HostListener('mouseenter')

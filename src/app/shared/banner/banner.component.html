@@ -1,0 +1,10 @@
+<h1>Home Frontend</h1>
+<button class="info-toggle" (click)="expand.set(!expand())">
+{{ expand() ? "Less Info" : "More Info" }}
+</button>
+
+@if(expand()) {
+    <section class="more-info">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, pariatur totam. Est minus voluptate amet. Dolorum repellat repellendus laborum voluptatem sequi, odit rem eos ipsum sit, impedit ut temporibus! Modi?</p>
+    </section>
+}

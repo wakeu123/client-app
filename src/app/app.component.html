@@ -1,4 +1,4 @@
-<section class="header">
+<!-- <section class="header">
     <button (click)="addUser()">Add Andy</button>
     <img width="120" src="./assets/logo-01.png" />
   </section>
@@ -7,3 +7,24 @@
   <a no-open href="https://google.com">Google !</a> 
   <a confirm confirm-message="Etes-vous sûre de vouloir aller sur cette page ?" href="https://twitter.com">Twitter !</a>
   <a confirm confirm-message="Etes-vous sûre de vouloir effectuer cette action ?" (click)="alert()" style="cursor: pointer;">Button</a>
+<hr>
+<button class="toggle-button" (click)="showMore.set(!showMore())">{{ showMore() ? "Collapse" : "Expand" }} Banner</button>
+<banner-witget [(expand)]="showMore" />
+<hr>
+<app-parent-counter /> -->
+
+<!-- <div style="height: 300px; border: 1px solid #eee">
+  <as-split [useTransition]="true" unit="percent" [gutterSize]="5">
+    <as-split-area [size]="60" [order]="1" [visible]="keepLeft">
+      <p>Some Data Sidenav</p>
+    </as-split-area>
+    <as-split-area [size]="40" [order]="2" [visible]="true">
+      <button class="collapse-btn" (click)="onClick()">Add</button>
+      Some Content
+    </as-split-area>
+  </as-split>
+</div> -->
+<button (click)="gotoVideo()">Video</button>
+<button (click)="gotoPhone()">Phone</button>
+<router-outlet />
+
