@@ -1,43 +1,28 @@
-import { Component, HostListener, computed, input, signal } from "@angular/core";
-import { User } from "../../core/models/user.model";
+import { ChangeDetectionStrategy, Component, inject} from "@angular/core";
+import { AsyncPipe } from "@angular/common";import { ReactiveFormsModule } from "@angular/forms";
+import { UserFascade } from "./user.fascade";
 
 @Component({
     selector: 'app-user-list',
     standalone: true,
+    imports: [ReactiveFormsModule, AsyncPipe],
     template: `
-    <input type="text" (input)="updateQuery($event)" placeholder="Start with..." />
+    <form class="row" [formGroup]="fascade.filters">
+        <input type="text" formControlName="name" placeholder="Name">
+        <input type="text" formControlName="username" placeholder="username">
+        <input type="text" formControlName="email" placeholder="email">
+        <button (click)="fascade.refres()">Refresh users</button>
+    </form>
     <ul>
-        @for (user of filteredUsers(); track user.id) {
-            <li> {{ user.name }} - {{ user.username }} </li>
+        @for (user of fascade.users(); track user.id) {
+            <li> {{ user.name }} - {{ user.username }} - {{ user.email }} </li>
         }
     </ul>
     `,
-    imports: []
+    providers: [UserFascade],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListUserComponent {
 
-    private query = signal<string>('');
-    users = input.required<User[]>();
-
-    protected filteredUsers = computed(() => 
-    this.users().filter(({ name }) => 
-        name.toLowerCase().startsWith(this.query().toLowerCase())
-    )
-    );
-
-    ngOnInit(): void {
-        const test1 = this.users().some((user) => user.name.toLowerCase() === 'wakeu');
-        console.log(`Value1 : ${test1}`);
-        const test2 = this.users().every((user) => user.name.toLowerCase().startsWith('w'));
-        console.log(`Value2 : ${test2}`);
-
-        console.log(this.users().sort((a, b) => a.id - b.id));
-        console.log(this.users().sort((a, b) => a.name.localeCompare(b.name)));
-        console.log(this.users().reduce((som, cur) => som + cur.id , 0));
-    }
-
-    updateQuery(e: Event) {
-        this.query.set((e.target as HTMLInputElement).value);
-    }
-
+    public fascade = inject(UserFascade);
 }

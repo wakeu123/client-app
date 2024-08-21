@@ -1,7 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, LOCALE_ID, inject, signal } from '@angular/core';
 import { format, formatDistance, subDays } from 'date-fns';
-import { User } from '@core/models/user.model';
 import { ListUserComponent } from '@features/users/list.component';
 import { HighlightDirective } from '@core/directives/highlith.directive';
 import { NoOpenDirective } from '@core/directives/no-open.directive';
@@ -61,25 +60,6 @@ export class AppComponent {
   go() {
     const rates: ExchangeRate = { EUR: 1.25, USD: 2.54, GBP: 3.24 };
     this.nbr = rates.USD;
-  }
-
-  users: User[] = [
-    { id: 1, name: 'Wakeu', lastName: 'Georges', username: 'naruto' },
-    { id: 2, name: 'Kounatze', lastName: 'Kelejou', username: 'nirina' },
-    { id: 3, name: 'Lebogo', lastName: 'etogo', username: 'octave' },
-  ]
-
-  addUser() {
-    this.users = [
-      ...this.users,
-      {
-        id: 5,
-        name: 'Andy',
-        lastName: 'Bernard',
-        username: 'andy.bernard',
-      }
-    ];
-    console.log('Current Users', this.users);
   }
 
   alert() {
