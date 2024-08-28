@@ -12,6 +12,6 @@ export const routes: Routes = [
     { path: 'video', component: VideoComponent },
     { path: 'phone', component: PhoneComponent },
     { path: 'login', component: LoginComponent},
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];

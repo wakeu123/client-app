@@ -5,10 +5,10 @@
                 <form [formGroup]="registerForm">
                     <h1>Create Account</h1>
                     <div class="social-icons">
-                        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your email for registeration</span>
                         <input type="text" placeholder="Name" formControlName="userName">
@@ -23,15 +23,15 @@
                 <form [formGroup]="loginForm">
                     <h1>Sign In</h1>
                     <div class="social-icons">
-                        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                        <a routerLink="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your email password</span>
                     <input type="email" placeholder="Email" formControlName="email">
                     <input type="password" placeholder="Password" formControlName="password">
-                    <a href="#">Forget Your Password?</a>
+                    <a routerLink="#">Forget Your Password?</a>
                     <button>Sign In</button>
                 </form>
             }

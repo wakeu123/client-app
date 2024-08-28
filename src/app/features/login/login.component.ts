@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, inject, viewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ToggleLoginRegisterDirective } from '@core/directives/toggle-login-register.directive';
 
 export type record = Record<string, string>;
@@ -7,7 +8,10 @@ export type record = Record<string, string>;
 @Component({
   selector: 'login',
   standalone: true,
-  imports: [ReactiveFormsModule, ToggleLoginRegisterDirective],
+  imports: [
+    RouterLink,
+    ReactiveFormsModule, 
+    ToggleLoginRegisterDirective],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
