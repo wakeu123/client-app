@@ -10,6 +10,7 @@ import { ParentCounterComponent } from '@features/parent-counter/parent-counter.
 import { LoginComponent } from '@features/login/login.component';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AngularSplitModule } from 'angular-split';
+import { ProgresComponent } from "./shared/loading/progres/progres.component";
 
 export type Currence = 'USD' | 'EUR' | 'GBP';
 
@@ -19,16 +20,18 @@ export type ExchangeRate = Record<Currence, number>;
   selector: 'app-root',
   standalone: true,
   imports: [
-    ListUserComponent, 
-    HighlightDirective, 
-    NoOpenDirective, 
+    ListUserComponent,
+    HighlightDirective,
+    NoOpenDirective,
     ParentCounterComponent,
     ConfirmDirective,
     LoginComponent,
     BannerComponent,
     RouterOutlet,
+    ProgresComponent,
     RouterLink,
-    AngularSplitModule
+    AngularSplitModule,
+    ProgresComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -67,6 +70,8 @@ export class AppComponent {
   }
 
   keepLeft: boolean = true;
+
+  show = signal<boolean>(true);
 
   onClick = (): void => {
 

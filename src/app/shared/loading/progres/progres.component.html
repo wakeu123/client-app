@@ -1,0 +1,10 @@
+<div class="loading" #loadingRef appLoading [container]="container()">
+    <div class="loading-container">
+        <div class="number">
+           <span id="loadCount" #loadCountRef appLoading [loadCount]="loadCount()">0</span><span>%</span> 
+        </div>
+        <div id="bar">
+            <div id="loading-progres" #progresBarRef appLoading [loading_progres]="loading_progres()"></div>
+        </div>
+    </div>
+</div>
