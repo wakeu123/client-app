@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   private fb = inject(FormBuilder);
 
   ngOnInit(): void {
+      console.log(JSON.stringify('{0}'));
       this.initLoginForm();
       this.initRegisterForm();
   }
@@ -44,7 +45,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onLogin = (): void => {
+    console.log(this.loginForm?.value);
+  }
+
+  onRegister = (): void => {
+    console.log(this.registerForm?.value);
   }
   
 }

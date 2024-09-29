@@ -16,5 +16,5 @@ export class HomeComponent {
 
     private _userService = inject(UserService);
 
-    users = toSignal(this._userService.load());
+    //users = toSignal(this._userService.load());
 }

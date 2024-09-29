@@ -1,4 +1,4 @@
-import { DestroyRef, Directive, ElementRef, inject, model, OnInit, Renderer2 } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, HostListener, inject, model, OnInit, Renderer2 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
 
@@ -10,7 +10,9 @@ export class LoadingDirective implements OnInit {
 
   private _renderer = inject(Renderer2);
 
-  time$ = interval(200);
+  load: boolean = false;
+  time$ = interval(10);
+  translate$ = interval(450);
   ref = inject(DestroyRef);
 
   container = model<ElementRef<HTMLDivElement>>();
@@ -21,7 +23,7 @@ export class LoadingDirective implements OnInit {
 
       if(this.loadCount() != null && this.loadCount() != undefined) {
         this.time$.pipe(takeUntilDestroyed(this.ref)).subscribe(value => {
-          if(value <= 100) {
+          if(value < 101) {
             this._renderer.setProperty(this.loadCount()?.nativeElement, 'textContent', value);
           }
         });
@@ -29,19 +31,30 @@ export class LoadingDirective implements OnInit {
 
       if(this.loading_progres() != null && this.loading_progres() != undefined) {
         this.time$.pipe(takeUntilDestroyed(this.ref)).subscribe(count => {
-          if(count <= 100) {
+          if(count < 101) {
             this._renderer.setStyle(this.loading_progres()?.nativeElement, 'width', (count).toString().concat('%'));
+          }
+          if(count == 100) {
+            this.load = true;
           }
         });
       }
 
-      if(this.container() != null && this.container() != undefined) {
-        this.time$.pipe(takeUntilDestroyed(this.ref)).subscribe( count => {
-          if(count == 100) {
-            //this._renderer.removeClass(this.container()?.nativeElement, 'loading');
-          }
+      if(this.load) {
+
+        if(this.container() != null && this.container() != undefined) {
+          this._renderer.setStyle(this.container()?.nativeElement, 'opacity', 0);
+        this.translate$.pipe(takeUntilDestroyed(this.ref)).subscribe( count => {
+          this._renderer.setStyle(this.container()?.nativeElement, 'display', 'none');
         });
       }
+      }
+  }
+
+  @HostListener('load')
+  onLoad() {
+    this.load = true;
+    console.log('Charger....');
   }
 
 }
