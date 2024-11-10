@@ -9,9 +9,9 @@ import { LoginComponent } from './features/login/login.component';
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'users', component: ListUserComponent },
-    { path: 'video', component: VideoComponent },
-    { path: 'phone', component: PhoneComponent },
+    { path: 'video', component: VideoComponent, title: 'video' },
+    { path: 'phone', component: PhoneComponent, title: 'Phone' },
     { path: 'login', component: LoginComponent},
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
