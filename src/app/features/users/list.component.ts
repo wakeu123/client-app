@@ -1,13 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject} from "@angular/core";
-import { AsyncPipe } from "@angular/common";import { ReactiveFormsModule } from "@angular/forms";
-import { UserFascade } from "./user.fascade";
 import { TableModule } from "primeng/table";
-import { SplitButtonModule } from 'primeng/splitbutton';
+import { UserFascade } from "./user.fascade";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ChangeDetectionStrategy, Component, inject} from "@angular/core";
 
 @Component({
     selector: 'app-user-list',
     standalone: true,
-    imports: [ReactiveFormsModule, AsyncPipe, TableModule, SplitButtonModule],
+    imports: [ReactiveFormsModule, TableModule],
     template: `
     <form class="row" [formGroup]="fascade.filters">
         <input type="text" formControlName="name" placeholder="Name">
@@ -33,7 +32,6 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     </ng-template>
     </p-table>
     <hr>
-    <p-splitButton />
     `,
     providers: [UserFascade],
     changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,19 +1,24 @@
 import { DestroyRef, inject, Injectable, OnDestroy } from "@angular/core";
 import { UserService } from "./user.service";
-import { BehaviorSubject, combineLatest, debounceTime, map, startWith, switchMap } from "rxjs";
+import { BehaviorSubject, combineLatest, debounceTime, map, startWith, switchMap, tap } from "rxjs";
 import { FormBuilder } from "@angular/forms";
 import { takeUntilDestroyed, toSignal } from "@angular/core/rxjs-interop";
 import { User } from "@app/core/models/user.model";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 export class UserFascade implements OnDestroy {
     private _userService = inject(UserService);
     private _destroyed = inject(DestroyRef);
+    private _spinner = inject(NgxSpinnerService);
 
     private readonly reload$$ = new BehaviorSubject<void>(void 0);
     filters = inject(FormBuilder).nonNullable.group({ name: [''], username: [''], email: [''] });
 
-    private users$ = this.reload$$.pipe(takeUntilDestroyed(this._destroyed), switchMap(() => this._userService.load()));
+    private users$ = this.reload$$.pipe(
+        tap(() => this._spinner.show()),
+        takeUntilDestroyed(this._destroyed), 
+        switchMap(() => this._userService.load()));
     private search$ = this.filters.valueChanges.pipe(debounceTime(300), startWith(this.filters.getRawValue()));
 
     

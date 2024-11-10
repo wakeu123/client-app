@@ -7,13 +7,21 @@ import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomTitleStrategy } from './shared/services/custom-title-strategy.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
     titleStrategy(),
     provideRouter(routes, withComponentInputBinding()),
-    importProvidersFrom(FormsModule, ReactiveFormsModule, AngularSplitModule, BrowserModule, BrowserAnimationsModule)
+    importProvidersFrom(
+      BrowserModule, 
+      BrowserAnimationsModule,
+      FormsModule, 
+      ReactiveFormsModule, 
+      AngularSplitModule, 
+      NgxSpinnerModule,
+    )
   ]
 };
 

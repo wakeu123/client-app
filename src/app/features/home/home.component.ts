@@ -1,20 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerComponent } from 'ngx-spinner';
 import { UserService } from '../users/user.service';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { ListUserComponent } from '../users/list.component';
-import { User } from '@app/core/models/user.model';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ListUserComponent],
+  imports: [ListUserComponent, NgxSpinnerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   providers: [UserService]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-    private _userService = inject(UserService);
-
-    //users = toSignal(this._userService.load());
+    ngOnInit(): void {
+  
+    }
 }
