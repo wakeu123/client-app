@@ -5,6 +5,7 @@ import { FormBuilder } from "@angular/forms";
 import { takeUntilDestroyed, toSignal } from "@angular/core/rxjs-interop";
 import { User } from "@app/core/models/user.model";
 import { NgxSpinnerService } from "ngx-spinner";
+import { isPlatformBrowser } from "@angular/common";
 
 @Injectable()
 export class UserFascade implements OnDestroy {
@@ -19,6 +20,7 @@ export class UserFascade implements OnDestroy {
         tap(() => this._spinner.show()),
         takeUntilDestroyed(this._destroyed), 
         switchMap(() => this._userService.load()));
+        
     private search$ = this.filters.valueChanges.pipe(debounceTime(300), startWith(this.filters.getRawValue()));
 
     

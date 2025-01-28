@@ -1,0 +1,35 @@
+.container {
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: 10px;
+        letter-spacing: 0.15px;
+        text-transform: uppercase;
+        color: #635488;
+
+        &.required::after {
+            content: "*";
+            color: red;
+        }
+    }
+
+    input {
+        height: 2.5rem;
+        padding: 5px 10px;
+        border-radius: var(--bradius);
+        border: none;
+        background: #F5F8F9;
+        outline-color: #635480;
+        color: #50595f;
+
+        &.placeholder {
+            color: #b6b6b6;
+        }
+    }
+}
+
+.error-container {
+    height: 30px;
+}

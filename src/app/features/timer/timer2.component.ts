@@ -6,7 +6,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
     selector: 'timer',
     standalone: true,
-    template: `Timer running {{ timer() }}`
+    template: `Timer running: {{ timer() }}`
 })
 export class TimerrComponent {
     timer = toSignal(interval(inject(DEFAULT_TIMER)))

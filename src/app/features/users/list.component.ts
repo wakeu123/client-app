@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy, Component, inject} from "@angular/core";
         <button (click)="fascade.refres()">Refresh users</button>
     </form>
 
-    <p-table [value]="fascade.users() ?? []" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="fascade.users() ?? []" tyleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
             <th>Name</th>

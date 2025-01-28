@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TimerComponent } from '../timer/timer.component';
 import { DEFAULT_TIMER } from '@app/data';
 
@@ -15,6 +15,10 @@ import { DEFAULT_TIMER } from '@app/data';
   templateUrl: './phone.component.html',
   styleUrl: './phone.component.scss'
 })
-export class PhoneComponent {
+export class PhoneComponent implements OnInit {
+
+  ngOnInit(): void {
+    console.clear();
+  }
 
 }

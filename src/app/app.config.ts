@@ -1,5 +1,6 @@
 import { routes } from './app.routes';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AngularSplitModule } from 'angular-split';
 import { provideHttpClient } from '@angular/common/http';
@@ -17,13 +18,15 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     importProvidersFrom(
       BrowserModule, 
+      //DeviceDetectorModule.forRoot(),
       BrowserAnimationsModule,
       FormsModule, 
       ReactiveFormsModule, 
-      AngularSplitModule, 
+      AngularSplitModule,
       NgxSpinnerModule,
-      ToastModule
-    )
+      ToastModule,
+      DialogModule
+    ),
   ]
 };
 

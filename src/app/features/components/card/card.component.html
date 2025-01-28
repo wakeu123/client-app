@@ -1,0 +1,17 @@
+<div>
+    <section>
+        <ng-content select="[card-header]" />        
+    </section>
+    <section>
+        @for (item of items(); track $index) {
+            <ng-template [ngTemplateOutlet]="rowTemplate"
+                         [ngTemplateOutletContext]="{ $implicite: item }" />            
+        }
+        @empty {
+            <p>No content...</p>
+        }        
+    </section>
+    <button class="border border-blue-500 bg-blue-500 p-2 rounded-sm"
+    (click)=""
+    >Add</button>
+</div>
