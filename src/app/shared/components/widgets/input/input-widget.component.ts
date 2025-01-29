@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { InputTextModule } from "primeng/inputtext";
-import { Component, forwardRef, inject, Injector, input, OnInit } from "@angular/core";
-import { ControlValueAccessor, FormControl, FormControlDirective, FormControlName, FormGroupDirective, FormsModule, NG_VALUE_ACCESSOR, NgControl, NgModel, Validators } from "@angular/forms";
+import { Component, forwardRef, input } from "@angular/core";
+import { FormsModule, NG_VALUE_ACCESSOR, Validators } from "@angular/forms";
 import { BaseControlValueAccessor } from "../base-control-value-accessor";
 
 @Component({
@@ -24,7 +24,7 @@ import { BaseControlValueAccessor } from "../base-control-value-accessor";
     </div>
     <div class="error-container">
         @if(control != undefined && control.touched) {
-            <ng-content select="[slot=error]" />
+            <ng-content select="[error]" />
         }
     </div>
     `,

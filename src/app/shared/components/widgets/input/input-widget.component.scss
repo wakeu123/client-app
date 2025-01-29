@@ -1,35 +1,47 @@
-.container {
-    gap: 4px;
-    display: flex;
-    flex-direction: column;
-
-    label {
+:host {
+    width: 100%;
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+  
+      label {
         font-size: 10px;
-        letter-spacing: 0.15px;
+        letter-spacing: 0.15rem;
         text-transform: uppercase;
-        color: #635488;
-
+        color: #6354B0;
+  
         &.required::after {
-            content: "*";
-            color: red;
+          content: "*"
         }
-    }
-
-    input {
-        height: 2.5rem;
+      }
+  
+      input {
+        height: 40px;
         padding: 5px 10px;
-        border-radius: var(--bradius);
+        border-radius: 4px;
         border: none;
         background: #F5F8F9;
-        outline-color: #635480;
+        outline-color: #6354B0;
         color: #50595f;
-
-        &.placeholder {
-            color: #b6b6b6;
+  
+        &::placeholder {
+          color: #b6b6b6;
         }
+      }
     }
-}
-
-.error-container {
-    height: 30px;
-}
+  
+    .error-container {
+      margin-top: 4px;
+      height: 15px;
+    }
+  
+    &.ng-untouched.ng-invalid .error-container error-widget {
+      display: none;
+    }
+  
+    &.ng-touched.ng-invalid input {
+      border: 2px solid #f87171;
+    }
+  }

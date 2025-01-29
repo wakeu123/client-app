@@ -26,12 +26,12 @@
 </div> -->
 <!-- <button (click)="gotoVideo()">Video</button>
 <button (click)="gotoPhone()">Phone</button> -->
-<!-- <router-outlet />  -->
- <form [formGroup]="testForm">
+<router-outlet /> 
+ <!-- <form [formGroup]="testForm">
   <div class="row">
    <input-widget id="name" label="Name" type="text" formControlName="name">
     @if (testForm.controls['name'].hasError('required')) {
-      <mat-error slot="error">
+      <mat-error error>
         Veuillez renseigner ce champ.
       </mat-error>
     }
@@ -41,14 +41,13 @@
    <input-widget id="date" label="Start date" type="date" formControlName="startDate" />
  </form>
  {{ testForm.value | json }}
- <button type="button" (click)="onShowFormValue()">Show form value</button>
+ <button type="button" (click)="onShowFormValue()">Show form value</button> -->
 <!-- <button type="button" (click)="go()">Add to map</button> -->
-<p-calendar dateFormat="dd/mm/yy" [(ngModel)]="selectedDate" (onSelect)="onShowSelectedDate($event)" styleClass="mt-5" />
-<ul class="mt-5">
+<!-- <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="selectedDate" (onSelect)="onShowSelectedDate($event)" styleClass="mt-5" /> -->
+<!-- <ul class="mt-5">
     <li *ngFor="let row of productDetails | keyvalue">{{row.key}}: {{row.value}}</li>
+</ul> -->
   
-</ul>
- 
 <!-- @if(show()) {
 <app-progres />
 }
