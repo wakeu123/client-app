@@ -20,16 +20,11 @@ export type ExchangeRate = Record<Currence, number>;
   selector: 'app-root',
   standalone: true,
   imports: [
-    NgFor,
-    JsonPipe,
     FormsModule,
     RouterOutlet,
-    KeyValuePipe,
     ReactiveFormsModule,
     CalendarModule,
-    AngularSplitModule,
-    InputWidgetComponent,
-    ErrorWidgetComponent
+    AngularSplitModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
