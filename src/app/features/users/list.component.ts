@@ -33,7 +33,6 @@ import { ChangeDetectionStrategy, Component, inject} from "@angular/core";
     </p-table>
     <hr>
     `,
-    providers: [UserFascade],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListUserComponent {
